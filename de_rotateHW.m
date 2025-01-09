@@ -32,20 +32,6 @@ theta = 0.5 * atan(2 * mu11 / (mu20 - mu02)); % Skew angle
 X_rotated = X_centered * cos(theta) + Y_centered * sin(theta);
 Y_rotated = -X_centered * sin(theta) + Y_centered * cos(theta);
 
-% Plotting results
-figure(1); clf;
-subplot(3,1,1);
-hold on;
-plot(X(P >= 0, 1), Y(P >= 0, 1), 'k', 'LineWidth', 2); % Plot in-air points
-plot(X(P == 0, 1), Y(P == 0, 1), 'r', 'LineWidth', 1); % Plot on-surface points
-grid on;
-title('Original Handwriting');
-xlabel('X Axis');
-ylabel('Y Axis');
-plot([meanX-1.5e4, meanX, meanX+1.5e4], [meanY-1.5e4*tan(theta), meanY, meanY+1.5e4*tan(theta)], 'bo:', 'LineWidth', 2);
-axis([0.75e4, 4e4, 2.4e4, 3e4]);
-set(gca, 'FontSize', 14);
-%%
 %plot results
 figure(1); clf;
 subplot(3,1,1);
